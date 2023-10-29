@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 function Profile() {
   const defaultImage = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png';
@@ -68,6 +68,7 @@ function Profile() {
       textAlign:'left'
     }
   }
+  
   return (
     <div style={{padding: 80, display: 'flex', gap:20}}>
       <div className='profile-details' style={{borderRight: '1px solid #7D7D7D', paddingRight: 20 , width:'25%' }}>
@@ -140,9 +141,9 @@ function Profile() {
           style={styles.title}  
         >Your images</div>        
         <div style={{display:'flex', paddingTop: 16, gap:10, flexWrap:'wrap'}}>
-          {images.sample.map((image)=>{
+          {images.sample.map((image, index)=>{
             return(
-              <img style={{borderRadius:12}} src={image['image-url']} defaultValue={defaultImage} alt="" />
+              <img key={index} height={250} width={250} style={{borderRadius:12}} src={'https://source.unsplash.com/random/300×300/?'+(Math.random()*100).toFixed(0).toString()} defaultValue={defaultImage} alt="" />
             )
           })}
         </div>
