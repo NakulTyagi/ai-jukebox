@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 
 function Profile() {
   const defaultImage = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png';
-  const [userImage, setuserImage] = useState('https://a.storyblok.com/f/191576/1200x800/215e59568f/round_profil_picture_after_.webp');
+  const [userImage, setuserImage] = useState('https://png.pngtree.com/thumb_back/fh260/background/20230612/pngtree-man-wearing-glasses-is-wearing-colorful-background-image_2905240.jpg');
   const images = {
     "sample":[
       {
@@ -71,9 +71,9 @@ function Profile() {
   
   return (
     <div style={{padding: 80, display: 'flex', gap:20}}>
-      <div className='profile-details' style={{borderRight: '1px solid #7D7D7D', paddingRight: 20 , width:'25%' }}>
-        <div className='top-details' style={{display:'flex', justifyContent:'space-between'}}>
-          <div className='profile-image' ><img style={{borderRadius: 40}} height={120} width={120} src={userImage || defaultImage} alt="" /></div>
+      <div className='profile-details' style={{borderRight: '1px solid #7D7D7D', paddingRight: 20 , width:'85%' }}>
+        <div className='top-details' style={{display:'flex', justifyContent:'space-between', gap:12}}>
+          <div className='profile-image' ><img style={{borderRadius: 50}} height={100} width={100} src={userImage || defaultImage} alt="" /></div>
           <div className='name-username'>
             <div>
               <div
