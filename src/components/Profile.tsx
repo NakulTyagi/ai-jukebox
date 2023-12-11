@@ -68,10 +68,27 @@ function Profile() {
       textAlign:'left'
     }
   }
+
+  const titleSubtitle = (title:string, subTitle:string)=>{
+    return (
+      <div>
+        <div
+          style={styles.title}  
+        >
+          {title}
+        </div>
+        <div
+          style={styles.desc}  
+        >
+          {subTitle}
+        </div>
+      </div>
+    )
+  }
   
   return (
-    <div style={{padding: 80, display: 'flex', gap:20}}>
-      <div className='profile-details' style={{borderRight: '1px solid #7D7D7D', paddingRight: 20 , width:'85%' }}>
+    <div style={{padding: 80, gap:20}}>
+      <div className='profile-details' style={{borderBottom: '1px solid #7D7D7D', paddingRight: 20  }}>
         <div className='top-details' style={{display:'flex', justifyContent:'space-between', gap:12}}>
           <div className='profile-image' ><img style={{borderRadius: 50}} height={100} width={100} src={userImage || defaultImage} alt="" /></div>
           <div className='name-username'>
@@ -94,56 +111,21 @@ function Profile() {
             </div>
           </div>
         </div>
-        <div className='body-details' style={{display:'flex', flexDirection:'column', alignItems:'flex-start'}}>
-          <div
-            style={styles.title}  
-          >
-            Your profession
-          </div>
-          <div
-            style={styles.desc}  
-          >
-            Creator
-          </div>
-          <div
-            style={styles.title}  
-          >
-            Your email
-          </div>
-          <div
-            style={styles.desc}  
-          >
-            Nakul Tyagi
-          </div>
-          <div
-            style={styles.title}  
-          >
-            Your address
-          </div>
-          <div
-            style={styles.desc}  
-          >
-            Nakul Tyagi
-          </div>
-          <div
-            style={styles.title}  
-          >
-            About your brand
-          </div>
-          <div
-            style={styles.desc}  
-          >
-            Eleifend adipiscing quisque pellentesque lacus pellentesque aliquet lacus. Varius tincidunt sem elementum feugiat et et. Dictum ut in libero diam gravida ultricies mattis tellus et.           </div>
+        <div className='body-details' style={{display:'flex',  justifyContent:'flex-start', gap:36,flexWrap:'wrap'}}>
+          {titleSubtitle('Your profession', 'Creator')}
+          {titleSubtitle('Your email', 'nakul1tyagi')}
+          {titleSubtitle('Your location', 'Haryana')}
+          {titleSubtitle('About your brand', 'Eleifend adipiscing quisque pellentesque lacus pellentesque aliquet lacus. Varius tincidunt sem elementum feugiat et et. Dictum ut in libero diam gravida ultricies mattis tellus et.')}
         </div>
       </div>
-      <div className='profile-data'>
+      <div className='profile-data' style={{marginTop: 20}}>
         <div
           style={styles.title}  
-        >Your images</div>        
+        >Your posts</div>        
         <div style={{display:'flex', paddingTop: 16, gap:10, flexWrap:'wrap'}}>
           {images.sample.map((image, index)=>{
             return(
-              <img key={index} height={250} width={250} style={{borderRadius:12}} src={'https://source.unsplash.com/random/300×300/?'+(Math.random()*100).toFixed(0).toString()} defaultValue={defaultImage} alt="" />
+              <img key={index} loading='lazy' height={250} width={250} style={{borderRadius:12}} src={'https://source.unsplash.com/random/300×300/?'+(Math.random()*100).toFixed(0).toString()} defaultValue={defaultImage} alt="" />
             )
           })}
         </div>
