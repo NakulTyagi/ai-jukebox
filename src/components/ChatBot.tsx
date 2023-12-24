@@ -1,12 +1,16 @@
 import React, { useState } from 'react'
 import apiService from '../services/ai-service.ts';
 import './LoadingSpinner.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { useNavigate } from 'react-router-dom';
 
 function ChatBot() {
   const [userchat, setUserChat] = useState<any>([]);
   const [aiReplies, setAiReplies] = useState<any>([]);
   const [inputText, setInputText] = useState('');
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const textAreaStyle = {
     width: '100%',
@@ -24,6 +28,7 @@ function ChatBot() {
 
   const sendChat = async () => {
     setLoading(true);
+    setInputText('');
     let prompts = [...userchat];
     prompts.push(inputText);
     setUserChat(prompts);
@@ -42,6 +47,10 @@ function ChatBot() {
 
   return (
     <div style={{padding: 80, gap:20}}>
+      <button onClick={()=>navigate('/')} style={{ display: 'flex', alignItems: 'center', ...buttonStyle, marginBottom: 20, backgroundColor: 'grey'  }}>
+        <FontAwesomeIcon icon={faArrowLeft} style={{ marginRight: '8px' }} />
+        Back
+      </button>
         <div>
             <textarea
                 rows="4"

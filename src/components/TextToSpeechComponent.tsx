@@ -3,6 +3,7 @@ import apiService from '../services/ai-service.ts';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import SearchableDropdown from './SearchableDropdown.js';
 
 const TextToSpeechComponent = () => {
   const [inputText, setInputText] = useState('');
@@ -10,15 +11,17 @@ const TextToSpeechComponent = () => {
   const [translatedText, setTranslatedText] = useState('');
   const [loading, setLoading] = useState(false);
   const [msg, setMsg] = useState<string>();
+  const [langs, setLanguages] = useState([]);
+  const [selectedValue, setSelectedValue] = useState<any>('');
 
   useEffect(() => {
     // Uncomment and adjust as needed
-    // apiService.getLanguages().then((res) => {
-    //   setLangs(res);
-    //   if (res.message) {
-    //     setMsg(res.message);
-    //   }
-    // });
+    apiService.getLanguages().then((res) => {
+      if (res.message) {
+        setMsg(res.message);
+      }
+      setLanguages(res.data.languages);
+    });
     // apiService.getVoices().then((res) => {
     //   setLangs(res);
     //   if (res.message) {
@@ -75,7 +78,7 @@ const TextToSpeechComponent = () => {
     setLoading(true);
 
     try {
-      const res = await apiService.googleTranslate(inputText);
+      const res = await apiService.googleTranslate(inputText, selectedValue.code);
       const data = res.data;
       setTranslatedText(data.translations[0]['translatedText']);
     } catch (error) {
@@ -88,11 +91,11 @@ const TextToSpeechComponent = () => {
 
   return (
     <div style={containerStyle}>
-      <button onClick={()=>navigate('/')} style={{ display: 'flex', alignItems: 'center' }}>
+      <button onClick={()=>navigate('/')} style={{ display: 'flex', alignItems: 'center', ...buttonStyle, backgroundColor: 'grey' }}>
         <FontAwesomeIcon icon={faArrowLeft} style={{ marginRight: '8px' }} />
         Back
       </button>
-      <h2 style={titleStyle}>Cloudlabs Text To Speech</h2>
+      <h2 style={titleStyle}>Text Translation</h2>
       <textarea
         rows="4"
         cols="50"
@@ -101,10 +104,18 @@ const TextToSpeechComponent = () => {
         placeholder="Enter text to convert to speech..."
         style={textAreaStyle}
       />
-      <button onClick={convertTextToSpeech} disabled={loading} style={buttonStyle}>
+      {langs &&       
+      <SearchableDropdown
+        options={langs}
+        label="name"
+        id="code"
+        selectedVal={selectedValue}
+        handleChange={(option) => setSelectedValue(option)}
+      />}
+      {/* <button onClick={convertTextToSpeech} disabled={loading} style={buttonStyle,  marginRight: '20px'}>
         Convert to Speech
-      </button>
-      <button onClick={translateText} disabled={loading} style={{ ...buttonStyle, marginLeft: '20px' }}>
+      </button> */}
+      <button onClick={translateText} disabled={loading} style={{ ...buttonStyle, marginTop: 20 }}>
         Translate
       </button>
       {msg && <p>{msg}</p>}

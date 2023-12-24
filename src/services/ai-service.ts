@@ -18,13 +18,13 @@ const apiService = {
   },
 
   getLanguages: async () => {
-    const url = 'https://cloudlabs-text-to-speech.p.rapidapi.com/languages';
+    const url = 'https://text-translator2.p.rapidapi.com/getLanguages';
     const options = {
-        method: 'GET',
-        headers: {
-            'X-RapidAPI-Key': '1fffba5decmshc04e02bd7ba41d4p1bd287jsn0de02ee6c949',
-            'X-RapidAPI-Host': 'cloudlabs-text-to-speech.p.rapidapi.com'
-        }
+      method: 'GET',
+      headers: {
+        'X-RapidAPI-Key': '1fffba5decmshc04e02bd7ba41d4p1bd287jsn0de02ee6c949',
+        'X-RapidAPI-Host': 'text-translator2.p.rapidapi.com'
+      }
     };
 
     const response = await fetch(url, options);;
@@ -73,7 +73,7 @@ const apiService = {
     return response.json();
   },
 
-  googleTranslate: async (inputText) => {
+  googleTranslate: async (inputText, language='es') => {
     const url = 'https://google-translate1.p.rapidapi.com/language/translate/v2';
     const options = {
         method: 'POST',
@@ -85,7 +85,7 @@ const apiService = {
         },
         body: new URLSearchParams({
             q: inputText,
-            target: 'es',
+            target: language,
             source: 'en'
         })
     };
