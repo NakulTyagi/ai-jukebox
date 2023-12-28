@@ -16,6 +16,10 @@ function ChatBot() {
     width: '100%',
     marginBottom: '20px',
     padding: '10px',
+    border:'1px solid green',
+    borderRadius: 12,
+    color: 'white',
+    backgroundColor:'#696969'
   };
   const buttonStyle = {
     backgroundColor: '#4CAF50',
@@ -57,7 +61,7 @@ function ChatBot() {
                 cols="50"
                 value={inputText}
                 onChange={(e) => setInputText(e.target.value)}
-                placeholder="Start Chatting with AI..."
+                placeholder="Start Chatting with AI... (try what's 2+5?)"
                 style={textAreaStyle}
             />
         </div>
@@ -67,14 +71,14 @@ function ChatBot() {
         <div style={{margin: 50, gap: 20, flexDirection:'column', alignItems:'center', display:'flex'}}>
             {userchat.map((prompt, index)=>{
                 return <div style={{flexDirection:'column', width: 600, padding:16, border:'1px solid green', borderRadius: 12}}>
-                    <div style={{ paddingBottom: 20, width:'100%'}}>
-                        <div style={{float:'right'}}>
+                    <div style={{ paddingBottom: 20,color: 'white', width:'100%'}}>
+                        <div style={{float:'right',}}>
                         {prompt}
                         </div>
                     </div>
                     <br />
-                    <div style={{float:'left', marginBottom: 20}}>
-                        <div style={{float:'left'}}>
+                    <div style={{float:'left', marginBottom: 20, color: 'white',}}>
+                        <div style={{float:'left', color: 'white',}}>
                             {aiReplies[index] ? aiReplies[index] : 
                             <div style={{display:'flex', gap:4}}>
                                 <div className="pulsating-animation"></div>
@@ -87,6 +91,13 @@ function ChatBot() {
                 </div>
             })}
         </div>
+        <style> 
+                {` 
+                    ::placeholder { 
+                        color: white; 
+                    }` 
+                } 
+            </style> 
     </div>
   )
 }

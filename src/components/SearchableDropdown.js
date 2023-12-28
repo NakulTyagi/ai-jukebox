@@ -46,6 +46,7 @@ const SearchableDropdown = ({
         <div className="selected-value">
           <input
             ref={inputRef}
+            style={{borderRadius: 20,backgroundColor:'#696969',color:'white'}}
             type="text"
             value={getDisplayValue()}
             name="searchTerm"
@@ -60,11 +61,14 @@ const SearchableDropdown = ({
         <div className={`arrow ${isOpen ? "open" : ""}`}></div>
       </div>
 
-      <div className={`options ${isOpen ? "open" : ""}`}>
+      <div className={`options ${isOpen ? "open" : ""}`}
+           style={{borderRadius: 20, backgroundColor:'#696969'}}
+      >
         {filter(options).map((option, index) => {
           return (
             <div
               onClick={() => selectOption(option)}
+              style={{color: 'white',}}
               className={`option ${
                 option[label] === selectedVal[label] ? "selected" : ""
               }`}

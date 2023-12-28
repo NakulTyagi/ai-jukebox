@@ -39,12 +39,17 @@ const TextToSpeechComponent = () => {
   const titleStyle = {
     textAlign: 'center',
     marginBottom: '20px',
+    color:'white'
   };
 
   const textAreaStyle = {
     width: '100%',
     marginBottom: '20px',
     padding: '10px',
+    border:'1px solid green',
+    borderRadius: 12,
+    color: 'white',
+    backgroundColor:'#696969'
   };
 
   const buttonStyle = {
@@ -119,7 +124,7 @@ const TextToSpeechComponent = () => {
         Translate
       </button>
       {msg && <p>{msg}</p>}
-      {translatedText && <p>{translatedText}</p>}
+      {translatedText && <p style={{color:'white', marginTop: 24, fontSize: 40, textAlign:'center'}}>{translatedText}</p>}
       {loading && <p style={loadingMessageStyle}>Converting to speech...</p>}
       {!loading && audioURL && (
         <div style={{ marginTop: '20px' }}>
@@ -130,6 +135,13 @@ const TextToSpeechComponent = () => {
           </audio>
         </div>
       )}
+              <style> 
+                {` 
+                    ::placeholder { 
+                        color: white; 
+                    }` 
+                } 
+            </style> 
     </div>
   );
 };

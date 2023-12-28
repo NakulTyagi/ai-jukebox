@@ -1,24 +1,20 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const CardSelection = ({ title, gradient, redirectTo }) => {
     const navigate = useNavigate();
 
     const navigateToContacts = () => {
-      // 👇️ navigate to /contacts
       navigate(redirectTo);
     };
-  
-    const navigateHome = () => {
-      // 👇️ navigate to /
-      navigate('/');
-    };
+
   const cardStyle = {
     position: 'relative',
-    width: '300px',
-    height: '200px',
-    background: gradient || 'linear-gradient(45deg, #FF8C00, #FFD700)',
+    width: '400px',
+    height: '300px',
+    backgroundImage: `url(https://assets.gatesnotes.com/8a5ac0b3-6095-00af-c50a-89056fbe4642/11eeb7f9-7512-49aa-abdc-a27001dd123e/AI_20230215_article-hero_1200x564.jpg)`,
     borderRadius: '10px',
+    backgroundSize:'cover',
     overflow: 'hidden',
     margin: '20px',
     boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
