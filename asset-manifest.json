@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/sports-insta/static/css/main.bd15b970.css",
+    "main.js": "/sports-insta/static/js/main.e4c0a492.js",
+    "static/js/787.f188d810.chunk.js": "/sports-insta/static/js/787.f188d810.chunk.js",
+    "index.html": "/sports-insta/index.html",
+    "main.bd15b970.css.map": "/sports-insta/static/css/main.bd15b970.css.map",
+    "main.e4c0a492.js.map": "/sports-insta/static/js/main.e4c0a492.js.map",
+    "787.f188d810.chunk.js.map": "/sports-insta/static/js/787.f188d810.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.bd15b970.css",
+    "static/js/main.e4c0a492.js"
+  ]
+}
