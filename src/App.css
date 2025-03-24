@@ -111,3 +111,19 @@
   background-color: #f2f9fc;
   color: #333;
 }
+
+.MuiCard-root {
+  transition: transform 0.2s ease-in-out;
+}
+
+.MuiCard-root:hover {
+  transform: translateY(-4px);
+}
+
+.MuiCardMedia-root {
+  transition: opacity 0.2s ease-in-out;
+}
+
+.MuiCardMedia-root:hover {
+  opacity: 0.9;
+}
