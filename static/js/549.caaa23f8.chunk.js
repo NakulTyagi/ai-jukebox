@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunksports_insta=self.webpackChunksports_insta||[]).push([[549],{3549:function(s,n,t){t.r(n);t(2791);var e=t(184);n.default=function(){return(0,e.jsx)("div",{children:(0,e.jsx)("h1",{children:"Voice Assistant"})})}}}]);
+//# sourceMappingURL=549.caaa23f8.chunk.js.map
