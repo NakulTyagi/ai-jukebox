@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunksports_insta=self.webpackChunksports_insta||[]).push([[362],{7362:function(s,n,t){t.r(n);t(2791);var r=t(184);n.default=function(){return(0,r.jsx)("div",{children:(0,r.jsx)("h1",{children:"Automation Dashboard"})})}}}]);
-//# sourceMappingURL=362.3335d561.chunk.js.map
